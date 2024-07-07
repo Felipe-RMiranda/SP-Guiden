@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Started_page">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="#FF000000"
+            android:fillViewport="true"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView android:id="@+id/rbdh70o7jefk"
+                    android:layout_width="match_parent"
+                    android:layout_height="450dp"
+                    android:layout_marginBottom="28dp"
+                    android:src="@drawable/espraiada"
+                    android:scaleType="centerCrop" />
+
+                <Button
+                    android:id="@+id/btnStart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="25dp"
+                    android:text="Get Started"
+                    android:textSize="15sp"
+                    android:textColor="@color/white"
+                    android:backgroundTint="#FF929CBF"/>
+
+                <TextView
+                    android:textColor="#FFFFFF"
+                    android:textAlignment="center"
+                    android:textSize="13sp"
+                    android:layout_marginHorizontal="13dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:text=
+                        " Bem vindo a cidade de São Paulo\n\nEste guia tem por intuito apresentar a capital de São Paulo por uma perspectiva de um jovem paulista.\n\nDesta forma proporcionando diversas opiniões e dicas personalizadas, a partir das experiencias que podem ser proporcionadas pela grande SP, vividas por jovens que se locomovem, estudam e desfrutam de lugares, experiencias, festivais e muito mais nessa belíssima cidade." />
+            </LinearLayout>
+        </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

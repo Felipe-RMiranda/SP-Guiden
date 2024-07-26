@@ -1,32 +1,27 @@
-package com.mirandar.spguiden
+package com.mirandar.spguiden.view
 
 import android.os.Bundle
-import android.widget.Button
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.mirandar.spguiden.R
+import com.mirandar.spguiden.control.Utils
 
-class Started_page : AppCompatActivity() {
+class HomePage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.started_page)
+        setContentView(R.layout.home_page)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
-
         }
-        val started: Button = findViewById(R.id.btnStart)
+        val utils = Utils(this)
 
-        started.setOnClickListener{
-            showMessage("More soon")
-        }
+        utils.startCarousel()
     }
 
-    fun showMessage(message:String) {
-        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
-    }
+
 }

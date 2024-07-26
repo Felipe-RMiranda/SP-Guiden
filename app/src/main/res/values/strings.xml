@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">SP Guiden</string>
+    <string name="history1">São Paulo começou a ser colonizada em 1532 quando Martim Afonso de Souza fundou a Vila de São Vicente (hoje Baixada Santista). Em busca de novas pessoas para evangelizar, um grupo de jesuítas desbravou a Serra do Mar e chegou até o Planalto de Piratininga onde fundaram um colégio em 1554, ao redor do qual se iniciou a construção das primeiras casas, dando origem ao povoado de São Paulo de Piratininga.</string>
+    <string name="history2">Nos primórdios, São Paulo vivia da agricultura de subsistência, depois da implantação da lavoura de cana-de-açúcar e também sonhava com a descoberta do ouro e dos metais preciosos. As viagens ao interior do país – Bandeiras – eram expedições organizadas para procurar pedras e metais preciosos nos sertões distantes.</string>
+    <string name="history3">De São Paulo, partiam as Bandeiras ao longo de todo século XVIII. A virada aconteceu na passagem para o século XIX, quando as plantações de café substituíram as de cana-de-açúcar para ocupar o primeiro plano da economia nacional.</string>
+    <string name="history4">A expansão da cultura do café fez com que as estradas de ferro se multiplicassem. O mesmo período também foi marcado pela vinda de imigrantes em massa para substituir a mão-de-obra nas plantações de café, com o fim da abolição da escravatura em 1888.</string>
+    <string name="history5">A importância de São Paulo na expansão cafeeira e do gado em Minas Gerais fez surgir a conhecida “política do café-com-leite” quando paulistas e mineiros se revezavam na Presidência da República.</string>
+    <string name="history6">São Paulo é um dos estados da região Sudeste e tem por limites Minas Gerais, Paraná, Rio de Janeiro, Mato Grosso do Sul e o Oceano Atlântico. Possui 645 municípios e sua área total é de 248.219,627 km².</string>
 </resources>

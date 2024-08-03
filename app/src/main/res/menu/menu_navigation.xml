@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/mnHome"
+        android:title="HOME"/>
+    <item
+        android:id="@+id/mnAlbum"
+        android:title="Imagens"/>
+    <item
+        android:id="@+id/mnLocations"
+        android:title="Onde Ir"/>
+    <item
+        android:id="@+id/mnAbout"
+        android:title="Sobre o desenvolvedor"/>
+</menu>

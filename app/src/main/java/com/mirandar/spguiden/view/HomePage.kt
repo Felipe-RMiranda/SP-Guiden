@@ -1,6 +1,10 @@
 package com.mirandar.spguiden.view
 
 import android.os.Bundle
+import android.view.MenuItem
+import android.view.View
+import android.widget.ImageView
+import android.widget.PopupMenu
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -18,10 +22,40 @@ class HomePage : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        val utils = Utils(this)
+        utils = Utils(this)
+        val btnMenuHome: ImageView = findViewById(R.id.btnMenu)
+        btnMenuHome.setOnClickListener{ view ->
+            showMenu(view)
+        }
 
-        utils.startCarousel()
+        utils!!.startCarousel()
+        utils!!.localList()
     }
-
-
+    private fun showMenu(v: View){
+        val popup = PopupMenu(this, v)
+        popup.menuInflater.inflate(R.menu.menu_navigation, popup.menu)
+        popup.setOnMenuItemClickListener {menuItem: MenuItem ->
+            when (menuItem.itemId) {
+                R.id.mnHome -> {
+                    utils!!.showPopupWindow(R.layout.popup_window)
+                    true
+                }
+                R.id.mnAlbum -> {
+                    utils!!.showPopupWindow(R.layout.popup_window)
+                    true
+                }
+                R.id.mnLocations -> {
+                    utils!!.showPopupWindow(R.layout.popup_window)
+                    true
+                }
+                R.id.mnAbout -> {
+                    utils!!.showPopupWindow(R.layout.popup_window)
+                    true
+                }
+                else -> false
+            }
+        }
+        popup.show()
+    }
+    private var utils: Utils? = null
 }

@@ -2,6 +2,8 @@ package com.mirandar.spguiden.model
 
 import android.app.Activity
 import android.graphics.BitmapFactory
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,7 +25,21 @@ class CarouselAdapter(private val context: Activity, private val imgs: List<Stri
         val assetManager = context.assets
         val inputStream = assetManager.open(imgs[position])
         val bitmap = BitmapFactory.decodeStream(inputStream)
+        val recyclerView: RecyclerView = context.findViewById(R.id.recyclerContent)
         holder.imgView.setImageBitmap(bitmap)
+
+        val handler = Handler(Looper.getMainLooper())
+        val runnable = object : Runnable{
+            var i = 0
+            override fun run() {
+                if (i == imgs.size+1) {
+                    i = 0
+                }
+                recyclerView.smoothScrollToPosition(i++)
+                //handler.postDelayed(this, 3000)
+            }
+        }
+        handler.post(runnable)
     }
 
     override fun getItemCount(): Int {

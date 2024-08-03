@@ -3,7 +3,7 @@
     <!-- Fundo transparente -->
     <item>
         <shape android:shape="rectangle">
-            <solid android:color="@android:color/transparent"/>
+            <solid android:color="#212121"/>
         </shape>
     </item>
 

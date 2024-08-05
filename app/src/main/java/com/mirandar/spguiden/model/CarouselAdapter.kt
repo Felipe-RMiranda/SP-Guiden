@@ -2,16 +2,22 @@ package com.mirandar.spguiden.model
 
 import android.app.Activity
 import android.graphics.BitmapFactory
+import android.graphics.drawable.Drawable
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.mirandar.spguiden.R
+import java.io.InputStream
 
-class CarouselAdapter(private val context: Activity, private val imgs: List<String>) : RecyclerView.Adapter<CarouselAdapter.ViewHolder>() {
+class CarouselAdapter(
+    private val context: Activity,
+    private val imgs: List<String>) :
+    RecyclerView.Adapter<CarouselAdapter.ViewHolder>() {
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imgView: ImageView = itemView.findViewById(R.id.imgContainer)
     }
@@ -22,24 +28,9 @@ class CarouselAdapter(private val context: Activity, private val imgs: List<Stri
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val assetManager = context.assets
-        val inputStream = assetManager.open(imgs[position])
-        val bitmap = BitmapFactory.decodeStream(inputStream)
-        val recyclerView: RecyclerView = context.findViewById(R.id.recyclerContent)
-        holder.imgView.setImageBitmap(bitmap)
-
-        val handler = Handler(Looper.getMainLooper())
-        val runnable = object : Runnable{
-            var i = 0
-            override fun run() {
-                if (i == imgs.size+1) {
-                    i = 0
-                }
-                recyclerView.smoothScrollToPosition(i++)
-                //handler.postDelayed(this, 3000)
-            }
-        }
-        handler.post(runnable)
+        val inputStream: InputStream = context.assets.open(imgs[position])
+        val drawable = Drawable.createFromStream(inputStream, null).also { inputStream.close() }
+        holder.imgView.setImageDrawable(drawable)
     }
 
     override fun getItemCount(): Int {

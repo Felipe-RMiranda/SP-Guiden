@@ -62,6 +62,8 @@ class Data(private val context: Activity) {
         )
     )
 
+
+
     private fun log(s:String){
         Log.d(TAG, s)
     }

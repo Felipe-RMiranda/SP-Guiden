@@ -1,5 +1,6 @@
 package com.mirandar.spguiden.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
@@ -27,7 +28,6 @@ class HomePage : AppCompatActivity() {
         btnMenuHome.setOnClickListener{ view ->
             showMenu(view)
         }
-
         utils!!.startCarousel()
         utils!!.localList()
     }
@@ -37,19 +37,21 @@ class HomePage : AppCompatActivity() {
         popup.setOnMenuItemClickListener {menuItem: MenuItem ->
             when (menuItem.itemId) {
                 R.id.mnHome -> {
-                    utils!!.showPopupWindow(R.layout.popup_window)
+                    val intent = Intent(this, HomePage::class.java)
+                    intent.setType(Intent.ACTION_VIEW)
+                    startActivity(intent)
                     true
                 }
                 R.id.mnAlbum -> {
-                    utils!!.showPopupWindow(R.layout.popup_window)
+                    utils!!.showPopupWindow("img")
                     true
                 }
                 R.id.mnLocations -> {
-                    utils!!.showPopupWindow(R.layout.popup_window)
+                    utils!!.showPopupWindow("locations")
                     true
                 }
                 R.id.mnAbout -> {
-                    utils!!.showPopupWindow(R.layout.popup_window)
+                    utils!!.showPopupWindow("About")
                     true
                 }
                 else -> false
@@ -57,5 +59,17 @@ class HomePage : AppCompatActivity() {
         }
         popup.show()
     }
+
+    override fun onPause() {
+        super.onPause()
+        utils!!.pauseRunnable()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        utils!!.startRunnable()
+    }
+    private val task: Boolean? = null
+    private val thread: Thread? = null
     private var utils: Utils? = null
 }

@@ -7,7 +7,6 @@ import android.net.Uri
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
-import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -16,7 +15,6 @@ import com.mirandar.spguiden.model.CarouselAdapter
 import com.mirandar.spguiden.model.Data
 import com.mirandar.spguiden.model.LocationsAdapter
 import com.mirandar.spguiden.view.PopupWindow
-import kotlin.reflect.KClass
 
 class Utils(private val context: Activity) {
     init {
@@ -32,6 +30,17 @@ class Utils(private val context: Activity) {
     private lateinit var runnable: Runnable
     private val img = data.loadImgs()
 
+    fun getImg(): List<String>{
+        return img
+    }
+
+    fun pauseRunnable(){
+        handler.removeCallbacks(runnable)
+    }
+    fun startRunnable(){
+        handler.post(runnable)
+    }
+
     fun startCarousel() {
         log("Start Carousel")
         context.runOnUiThread{
@@ -40,6 +49,26 @@ class Utils(private val context: Activity) {
             recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
             recyclerView.adapter = carouselAdapter
         }
+        val recyclerView: RecyclerView = context.findViewById(R.id.recyclerContent)
+        handler = Handler(Looper.getMainLooper())
+        runnable = object : Runnable{
+            var i = 0
+            override fun run() {
+                if (i == recyclerView.adapter!!.itemCount) {
+                    i = 0
+                    recyclerView.scrollToPosition(i)
+                }else{
+                    i++
+                }
+                for (img in img) {
+
+                    Log.d("LOG", ""+i)
+                }
+                recyclerView.smoothScrollToPosition(i)
+                handler.postDelayed(this, 5000)
+            }
+        }
+        handler.post(runnable)
     }
 
     fun localList() {
@@ -56,13 +85,12 @@ class Utils(private val context: Activity) {
     fun openWebPage(url:String){
         val webPage: Uri = Uri.parse(url)
         val intent = Intent(Intent.ACTION_VIEW, webPage)
-        if (intent.resolveActivity(context.packageManager) != null){
-            context.startActivity(intent)
-        }
+        context.startActivity(intent)
     }
-    fun showPopupWindow(v: Int){
+    fun showPopupWindow(fragment: String, position: String? = null){
         val intent = Intent(context, PopupWindow::class.java)
-        intent.putExtra("view", v)
+        intent.putExtra("Fragment", fragment)
+        intent.putExtra("position", position)
         intent.setType(Intent.ACTION_VIEW)
         context.startActivity(intent)
     }
@@ -73,7 +101,7 @@ class Utils(private val context: Activity) {
         }
     }
 
-    private fun log(s:String){
+    fun log(s:String){
         Log.d(TAG, s)
     }
 }

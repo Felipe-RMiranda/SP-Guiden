@@ -6,4 +6,6 @@
     <string name="history4">A expansão da cultura do café fez com que as estradas de ferro se multiplicassem. O mesmo período também foi marcado pela vinda de imigrantes em massa para substituir a mão-de-obra nas plantações de café, com o fim da abolição da escravatura em 1888.</string>
     <string name="history5">A importância de São Paulo na expansão cafeeira e do gado em Minas Gerais fez surgir a conhecida “política do café-com-leite” quando paulistas e mineiros se revezavam na Presidência da República.</string>
     <string name="history6">São Paulo é um dos estados da região Sudeste e tem por limites Minas Gerais, Paraná, Rio de Janeiro, Mato Grosso do Sul e o Oceano Atlântico. Possui 645 municípios e sua área total é de 248.219,627 km².</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

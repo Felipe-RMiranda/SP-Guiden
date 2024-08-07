@@ -28,7 +28,8 @@ class Utils(private val context: Activity) {
     private lateinit var locationAdapter: LocationsAdapter
     private lateinit var handler: Handler
     private lateinit var runnable: Runnable
-    private val img = data.loadImgs()
+    private val img = data.loadImgsCarousel()
+    private  val locationsImg = data.loadImgsLocations()
 
     fun getImg(): List<String>{
         return img

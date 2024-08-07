@@ -1,8 +1,6 @@
 package com.mirandar.spguiden.model
 
 import android.app.Activity
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.util.Log
 import com.mirandar.spguiden.R
 import java.io.IOException
@@ -16,7 +14,7 @@ class Data(private val context: Activity) {
     val assetManager =context.assets
 
 
-    fun loadImgs(): List<String> {
+    fun loadImgsCarousel(): List<String> {
         log("Start LoadImg")
         val imagePaths = mutableListOf<String>()
         try {
@@ -30,6 +28,21 @@ class Data(private val context: Activity) {
         }catch (e: IOException) {
             e.printStackTrace()
             log("FilePaths failed")
+        }
+        return imagePaths
+    }
+    fun loadImgsLocations(): List<String>{
+        val imagePaths = mutableListOf<String>()
+        try {
+            val files = assetManager.list("locations")
+            if (files != null) {
+                for (file in files) {
+                    imagePaths.add("locations/$file")
+                }
+            }
+        }catch (e: IOException) {
+            e.printStackTrace()
+            log("FilePaths locations: failed")
         }
         return imagePaths
     }

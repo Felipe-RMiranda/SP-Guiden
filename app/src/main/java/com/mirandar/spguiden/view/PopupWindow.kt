@@ -13,14 +13,14 @@ class PopupWindow : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.popup_window)
         val utils = Utils(this)
-        var imgView : ImgFragment? = null
+        var imgView : FullImgFragment? = null
 
 
         val view = intent.getStringExtra("Fragment")
         val imgsPosition = intent.getStringExtra(("position"))
         val img = GalleryFragment(this)
         if (imgsPosition != null) {
-            imgView = ImgFragment(imgsPosition!!, utils.getImg(), this)
+            imgView = FullImgFragment(imgsPosition!!, utils.getImg(), this)
         } else {
             utils.log("Null! | imgsPosition: "+imgsPosition)
         }

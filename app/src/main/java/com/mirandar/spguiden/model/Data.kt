@@ -18,10 +18,10 @@ class Data(private val context: Activity) {
         log("Start LoadImg")
         val imagePaths = mutableListOf<String>()
         try {
-            val files = assetManager.list("Carrocel_imgs")
+            val files = assetManager.list("carousel_img")
             if (files != null) {
                 for (file in files) {
-                    imagePaths.add("Carrocel_imgs/$file")
+                    imagePaths.add("carousel_img/$file")
                 }
                 log("FilePaths successfully Loaded")
             }

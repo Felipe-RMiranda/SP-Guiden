@@ -2,6 +2,9 @@ package com.mirandar.spguiden.view
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.widget.ImageView
@@ -10,6 +13,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.RecyclerView
 import com.mirandar.spguiden.R
 import com.mirandar.spguiden.control.Utils
 
@@ -28,9 +32,11 @@ class HomePage : AppCompatActivity() {
         btnMenuHome.setOnClickListener{ view ->
             showMenu(view)
         }
+        utils!!.printImgs()
         utils!!.startCarousel()
         utils!!.localList()
     }
+
     private fun showMenu(v: View){
         val popup = PopupMenu(this, v)
         popup.menuInflater.inflate(R.menu.menu_navigation, popup.menu)
@@ -69,7 +75,5 @@ class HomePage : AppCompatActivity() {
         super.onResume()
         utils!!.startRunnable()
     }
-    private val task: Boolean? = null
-    private val thread: Thread? = null
     private var utils: Utils? = null
 }

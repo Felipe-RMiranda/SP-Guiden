@@ -8,4 +8,5 @@
     <string name="history6">São Paulo é um dos estados da região Sudeste e tem por limites Minas Gerais, Paraná, Rio de Janeiro, Mato Grosso do Sul e o Oceano Atlântico. Possui 645 municípios e sua área total é de 248.219,627 km².</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="wellcome">Bem-vindo a cidade de São Paulo\n\nEste guia tem por intuito apresentar a capital de São Paulo por uma perspectiva de um jovem paulista.\n\nDesta forma proporcionando diversas opiniões e dicas personalizadas, a partir das experiências que podem ser proporcionadas pela grande SP, vividas por jovens que se locomovem, estudam e desfrutam de lugares, experiencias, festivais e muito mais nessa belíssima cidade.</string>
 </resources>

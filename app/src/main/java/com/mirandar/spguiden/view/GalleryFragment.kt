@@ -26,7 +26,7 @@ class GalleryFragment (
         val utils = Utils(context)
         val recyclerView: RecyclerView = view.findViewById(R.id.gallery_recycler)
         val adapter = GalleryAdapter(context, utils.getImg())
-        recyclerView.layoutManager = GridLayoutManager(context, 4)
+        recyclerView.layoutManager = GridLayoutManager(context, 3)
         recyclerView.adapter = adapter
 
 

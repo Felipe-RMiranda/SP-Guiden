@@ -27,9 +27,8 @@ class GalleryAdapter(
     }
 
     override fun onBindViewHolder(holder: GalleryAdapter.ViewHolder, position: Int) {
-        val inputStream: InputStream = context.assets.open(imgs[position])
-        val drawable = Drawable.createFromStream(inputStream, null).also { inputStream.close() }
-        holder.img.setImageDrawable(drawable)
+        val input = holder.utils.createThumbnail(imgs[position])
+        holder.img.setImageDrawable(input)
         holder.img.setOnClickListener{
         holder.utils.showPopupWindow("imgView", imgs[position])
         }

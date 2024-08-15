@@ -26,25 +26,32 @@ class FullImgFragment(
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.full_img_fragment, container, false)
+        val utils = Utils(context)
         containerImg = view.findViewById(R.id.img_view)
         bitMap(position)
         var i = imgs.indexOf(position)
         val next: ImageView = view.findViewById(R.id.btn_next)
         val back: ImageView = view.findViewById(R.id.btn_back)
+        for (im in imgs) {
+            val i = imgs.indexOf(im)
+            utils.log("Index: $i, Objeto: $im")
+        }
         next.setOnClickListener{
-            if (i >= imgs.size){
+            if (i >= imgs.size-1){
                 i = 0
             } else {
                 i++
             }
+            utils.log("Index: $i")
             bitMap(imgs[i])
         }
         back.setOnClickListener{
             if (i <= 0){
-                i = imgs.size
+                i = imgs.size -1
             } else {
                 i--
             }
+            utils.log("Index: $i")
             bitMap(imgs[i])
         }
         return view

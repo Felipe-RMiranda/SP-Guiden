@@ -18,6 +18,7 @@ class CarouselAdapter(
     private val context: Activity,
     private val imgs: List<String>) :
     RecyclerView.Adapter<CarouselAdapter.ViewHolder>() {
+
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imgView: ImageView = itemView.findViewById(R.id.imgContainer)
     }

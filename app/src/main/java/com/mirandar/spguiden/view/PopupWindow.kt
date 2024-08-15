@@ -12,22 +12,25 @@ class PopupWindow : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.popup_window)
+
         val utils = Utils(this)
         var imgView : FullImgFragment? = null
 
-
         val view = intent.getStringExtra("Fragment")
         val imgsPosition = intent.getStringExtra(("position"))
+
         val img = GalleryFragment(this)
+        val locations = LocationsFragment(this)
+
         if (imgsPosition != null) {
-            imgView = FullImgFragment(imgsPosition!!, utils.getImg(), this)
+            imgView = FullImgFragment(imgsPosition, utils.getImg(), this)
         } else {
             utils.log("Null! | imgsPosition: "+imgsPosition)
         }
 
         when (view) {
             "img" -> openFrag(img)
-            "locations" -> openFrag(img)
+            "locations" -> openFrag(locations)
             "About" -> openFrag(img)
             "imgView" -> openFrag(imgView!!)
             else -> utils.message("Página indisponível!")
@@ -35,6 +38,7 @@ class PopupWindow : AppCompatActivity() {
 
     }
     private fun openFrag(f: Fragment){
-        supportFragmentManager.beginTransaction().add(R.id.fragment_container, f).commit()
+        supportFragmentManager.beginTransaction().
+        add(R.id.fragment_container, f).commit()
     }
 }

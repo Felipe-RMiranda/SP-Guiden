@@ -4,15 +4,15 @@ import android.app.Activity
 import android.util.Log
 import com.mirandar.spguiden.R
 import java.io.IOException
+import java.io.Serializable
 
-class Data(private val context: Activity) {
+class Data(private val context: Activity) : Serializable {
     init {
         log("Start DATA")
     }
     private val TAG = "** ***LOG_TO_SP*** **"
 
-    val assetManager =context.assets
-
+    val assetManager = context.assets
 
     fun loadImgsCarousel(): List<String> {
         log("Start LoadImg")
@@ -74,8 +74,23 @@ class Data(private val context: Activity) {
             "https://salasaopaulo.art.br/salasp/pt/"
         )
     )
+    private val linkInsta = "https://www.instagram.com/fellpe_r?igsh=b3h0dmdpOWszOTlw"
+    private val linkGit = "https://github.com/Fellpe-R"
+    private val linkLin = "https://www.linkedin.com/in/fellpe-ramos?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+    private val linkEmail = "mailto:fellpe.ramos@outlook.com"
 
-
+    fun getLinkInsta() : String {
+        return linkInsta
+    }
+    fun getLinkGit(): String{
+        return linkGit
+    }
+    fun getLinkLin(): String{
+        return linkLin
+    }
+    fun getLinkEmail(): String{
+        return linkEmail
+    }
 
     private fun log(s:String){
         Log.d(TAG, s)

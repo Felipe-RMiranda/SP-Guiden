@@ -43,17 +43,17 @@ class LocationsAdapter(
         holder.linkWeb.setImageResource(R.drawable.web)
 
         holder.linkInstagram.setOnClickListener{
-            testPage(listLocations.getLinkInst())
+            web(listLocations.getLinkInst())
         }
         holder.linkMaps.setOnClickListener{
-            testPage(listLocations.getLinkMaps())
+            web(listLocations.getLinkMaps())
         }
         holder.linkWeb.setOnClickListener{
-            testPage(listLocations.getLinkWeb())
+            web(listLocations.getLinkWeb())
         }
     }
 
-    private fun testPage(s:String){
+    private fun web(s:String){
         if (s != "null"){
             utils.openWebPage(s)
         }else{

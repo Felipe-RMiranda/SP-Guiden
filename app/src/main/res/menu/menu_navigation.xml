@@ -11,5 +11,5 @@
         android:title="Onde Ir"/>
     <item
         android:id="@+id/mnAbout"
-        android:title="Sobre o desenvolvedor"/>
+        android:title="Sobre"/>
 </menu>

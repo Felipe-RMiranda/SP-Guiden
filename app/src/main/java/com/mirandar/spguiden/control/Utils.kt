@@ -20,8 +20,9 @@ import com.mirandar.spguiden.model.Data
 import com.mirandar.spguiden.model.LocationsAdapter
 import com.mirandar.spguiden.view.PopupWindow
 import java.io.InputStream
+import java.io.Serializable
 
-class Utils(private val context: Activity) {
+class Utils(private val context: Activity) : Serializable {
     init {
         log("Start Utils")
 //        printImgs()
@@ -113,16 +114,6 @@ class Utils(private val context: Activity) {
         intent.putExtra("position", position)
         intent.setType(Intent.ACTION_VIEW)
         context.startActivity(intent)
-    }
-
-    fun createThumbnail(input: String): Drawable {
-        val inputStream: InputStream = context.assets.open(input)
-        val originalBitmap = BitmapFactory.decodeStream(inputStream)
-        val scale = 0.1
-        val width = (originalBitmap.width * scale).toInt()
-        val height = (originalBitmap.height * scale).toInt()
-        val thumbnailBitmap = Bitmap.createScaledBitmap(originalBitmap, width, height, false)
-        return BitmapDrawable(context.resources, thumbnailBitmap)
     }
 
     fun message(s:String){

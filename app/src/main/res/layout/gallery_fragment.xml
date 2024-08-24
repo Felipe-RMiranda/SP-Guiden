@@ -11,12 +11,61 @@
     app:cardCornerRadius="20dp"
     tools:context=".view.GalleryFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/gallery_recycler"
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:padding="15dp"
         android:background="@drawable/background_itemlist"
+        android:visibility="gone"/>
+
+    <LinearLayout
+        android:id="@+id/content"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="10dp"/>
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_itemlist"
+        android:orientation="vertical"
+        android:gravity="center">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
+            android:padding="10dp"
+            android:background="@drawable/close_bar_bkg"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="start">
+                <ImageView
+                    android:id="@+id/menu"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/menu_vector"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end">
+                <ImageView
+                    android:id="@+id/close"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/close"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/gallery_recycler"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp"/>
+
+    </LinearLayout>
 
 </androidx.cardview.widget.CardView>

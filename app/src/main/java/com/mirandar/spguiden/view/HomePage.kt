@@ -13,6 +13,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.widget.NestedScrollView
 import androidx.recyclerview.widget.RecyclerView
 import com.mirandar.spguiden.R
 import com.mirandar.spguiden.control.Utils
@@ -43,9 +44,8 @@ class HomePage : AppCompatActivity() {
         popup.setOnMenuItemClickListener {menuItem: MenuItem ->
             when (menuItem.itemId) {
                 R.id.mnHome -> {
-                    val intent = Intent(this, HomePage::class.java)
-                    intent.setType(Intent.ACTION_VIEW)
-                    startActivity(intent)
+                    val scroll = findViewById<NestedScrollView>(R.id.scroll)
+                    scroll.smoothScrollTo(0, 0)
                     true
                 }
                 R.id.mnAlbum -> {

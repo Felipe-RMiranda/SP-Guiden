@@ -21,6 +21,7 @@ class PopupWindow : AppCompatActivity() {
 
         val img = GalleryFragment(this)
         val locations = LocationsFragment(this)
+        val about = AboutFragment(this)
 
         if (imgsPosition != null) {
             imgView = FullImgFragment(imgsPosition, utils.getImg(), this)
@@ -31,7 +32,7 @@ class PopupWindow : AppCompatActivity() {
         when (view) {
             "img" -> openFrag(img)
             "locations" -> openFrag(locations)
-            "About" -> openFrag(img)
+            "About" -> openFrag(about)
             "imgView" -> openFrag(imgView!!)
             else -> utils.message("Página indisponível!")
         }

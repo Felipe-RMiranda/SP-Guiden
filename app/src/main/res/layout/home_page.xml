@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
@@ -46,120 +47,179 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerContent"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="500dp"
-        android:layout_weight="1"
-        android:layout_marginTop="20dp"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:listitem="@layout/carousel_item"/>
+        android:layout_height="match_parent">
 
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/scroll"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="20dp"
-        android:fillViewport="true"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerContent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:layout_marginTop="20dp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            tools:listitem="@layout/carousel_item"/>
 
         <LinearLayout
+            android:id="@+id/scrollBkg"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="top"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="#59000000"
+            android:visibility="gone"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="500dp"/>
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/scroll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:fillViewport="true"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#59000000"
-                android:gravity="top"
-                android:orientation="vertical">
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="20dp"
-                    android:textColor="@color/white"
-                    android:textAlignment="center"
-                    android:textSize="18sp"
-                    android:text="História"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="550dp"/>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginBottom="10dp"
-                    android:textColor="@color/white"
-                    android:textAlignment="textStart"
-                    android:textSize="13sp"
-                    android:text="@string/history1"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginBottom="10dp"
-                    android:textColor="@color/white"
-                    android:textAlignment="textStart"
-                    android:textSize="13sp"
-                    android:text="@string/history2"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginBottom="10dp"
-                    android:textColor="@color/white"
-                    android:textAlignment="textStart"
-                    android:textSize="13sp"
-                    android:text="@string/history3"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginBottom="10dp"
-                    android:textColor="@color/white"
-                    android:textAlignment="textStart"
-                    android:textSize="13sp"
-                    android:text="@string/history4"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginBottom="10dp"
-                    android:textColor="@color/white"
-                    android:textAlignment="textStart"
-                    android:textSize="13sp"
-                    android:text="@string/history5"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginBottom="10dp"
-                    android:textColor="@color/white"
-                    android:textAlignment="textStart"
-                    android:textSize="13sp"
-                    android:text="@string/history6"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:textColor="@color/white"
+                        android:textAlignment="center"
+                        android:textSize="18sp"
+                        android:text="História"
+                        android:shadowColor="@color/black"
+                        android:shadowDx="3"
+                        android:shadowDy="3"
+                        android:shadowRadius="1"/>
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recyclerList"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    tools:listitem="@layout/local_item"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:textColor="@color/white"
+                        android:textAlignment="textStart"
+                        android:textSize="13sp"
+                        android:text="@string/history1"
+                        android:shadowColor="@color/black"
+                        android:shadowDx="3"
+                        android:shadowDy="3"
+                        android:shadowRadius="1"/>
+                    <TextView
+                        android:id="@+id/tx1"
+                        android:visibility="gone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:textColor="@color/white"
+                        android:textAlignment="textStart"
+                        android:textSize="13sp"
+                        android:text="@string/history2"
+                        android:shadowColor="@color/black"
+                        android:shadowDx="3"
+                        android:shadowDy="3"
+                        android:shadowRadius="1"/>
+                    <TextView
+                        android:id="@+id/tx2"
+                        android:visibility="gone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:textColor="@color/white"
+                        android:textAlignment="textStart"
+                        android:textSize="13sp"
+                        android:text="@string/history3"
+                        android:shadowColor="@color/black"
+                        android:shadowDx="3"
+                        android:shadowDy="3"
+                        android:shadowRadius="1"/>
+                    <TextView
+                        android:id="@+id/tx3"
+                        android:visibility="gone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:textColor="@color/white"
+                        android:textAlignment="textStart"
+                        android:textSize="13sp"
+                        android:text="@string/history4"
+                        android:shadowColor="@color/black"
+                        android:shadowDx="3"
+                        android:shadowDy="3"
+                        android:shadowRadius="1"/>
+                    <TextView
+                        android:id="@+id/tx4"
+                        android:visibility="gone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:textColor="@color/white"
+                        android:textAlignment="textStart"
+                        android:textSize="13sp"
+                        android:text="@string/history5"
+                        android:shadowColor="@color/black"
+                        android:shadowDx="3"
+                        android:shadowDy="3"
+                        android:shadowRadius="1"/>
+                    <TextView
+                        android:id="@+id/tx5"
+                        android:visibility="gone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:textColor="@color/white"
+                        android:textAlignment="textStart"
+                        android:textSize="13sp"
+                        android:text="@string/history6"/>
 
-            </LinearLayout>
-        </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/showMore"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="5dp">
+                        <TextView
+                            android:id="@+id/showMoreText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Ver mais"/>
+                        <ImageView
+                            android:id="@+id/arrowDirection"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:contentDescription="@string/todo"
+                            android:src="@drawable/more_down"/>
+                    </LinearLayout>
 
-    </androidx.core.widget.NestedScrollView>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerList"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        tools:listitem="@layout/local_item"/>
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+                </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+    </FrameLayout>
+</LinearLayout>

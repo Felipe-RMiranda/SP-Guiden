@@ -9,4 +9,5 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="wellcome">Bem-vindo a cidade de São Paulo\n\nEste guia tem por intuito apresentar a capital de São Paulo por uma perspectiva de um jovem paulista.\n\nDesta forma proporcionando diversas opiniões e dicas personalizadas, a partir das experiências que podem ser proporcionadas pela grande SP, vividas por jovens que se locomovem, estudam e desfrutam de lugares, experiencias, festivais e muito mais nessa belíssima cidade.</string>
+    <string name="todo">TODO</string>
 </resources>

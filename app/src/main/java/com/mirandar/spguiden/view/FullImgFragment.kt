@@ -82,8 +82,8 @@ class FullImgFragment(
         popup.setOnMenuItemClickListener {menuItem: MenuItem ->
             when (menuItem.itemId) {
                 R.id.mnHome -> {
-                    home()
-                    activity?.finish()
+                    val close = Intent("close")
+                    activity?.sendBroadcast(close)
                     true
                 }
                 R.id.mnAlbum -> {
@@ -103,23 +103,6 @@ class FullImgFragment(
             }
         }
         popup.show()
-    }
-
-    private fun home(){
-        val activityManager = requireContext().getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
-        val task = activityManager.appTasks
-
-        for (task in task) {
-            val taskInfo = task.taskInfo
-            if (taskInfo.topActivity?.className == HomePage::class.java.name){
-                task.moveToFront()
-                return
-            }
-            val intent = Intent(requireContext(), HomePage::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_REORDER_TO_FRONT
-            startActivity(intent)
-
-        }
     }
 
     private fun bitMap(s: String){

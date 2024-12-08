@@ -1,5 +1,6 @@
-package com.mirandar.spguiden
+package com.mirandar.spguiden.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
@@ -7,6 +8,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.mirandar.spguiden.R
 
 class Started_page : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,7 +24,9 @@ class Started_page : AppCompatActivity() {
         val started: Button = findViewById(R.id.btnStart)
 
         started.setOnClickListener{
-            showMessage("More soon")
+            val intent = Intent(this, HomePage::class.java)
+            startActivity(intent)
+
         }
     }
 
